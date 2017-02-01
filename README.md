@@ -1,4 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# React-base-project
+
+This is a simple React project with some functionalities added to start working on it. 
+
+# TODO
+- [x] Folder structure
+- [x] Production and development builds
+- [x] Development server with Livereload
+- [x] Navbar
+- [x] React-router
+- [ ] Redux
+	- [ ] React-Redux
+	- [ ] react-router-redux
+- [ ] react-bootstrap
+	- [ ] react-router-bootstrap
+- [ ] Sass
+- [ ] Unit tests
+- [ ] Tasks
+	- [ ] Create new view
+		- [x] New view
+		- [ ] Add route	
+- [ ] Docker
+- [ ] Node.js server to Prod version
+- [x] Following the best practices.
 
 ## Table of Contents
 - [Folder Structure](#folder-structure)
@@ -137,33 +160,7 @@ Create React App is not opinionated about your choice of web server. Any static 
 
 However this is not quite enough if you use client-side routing. Read the next section if you want to support URLs like `/todos/42` in your single-page app.
 
-### Serving Apps with Client-Side Routing
-
-If you use routers that use the HTML5 [`pushState` history API](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries) under the hood (for example, [React Router](https://github.com/ReactTraining/react-router) with `browserHistory`), many static file servers will fail. For example, if you used React Router with a route for `/todos/42`, the development server will respond to `localhost:3000/todos/42` properly, but an Express serving a production build as above will not.
-
-This is because when there is a fresh page load for a `/todos/42`, the server looks for the file `build/todos/42` and does not find it. The server needs to be configured to respond to a request to `/todos/42` by serving `index.html`. For example, we can amend our Express example above to serve `index.html` for any unknown paths:
-
-```diff
- app.use(express.static('./build'));
-
--app.get('/', function (req, res) {
-+app.get('/*', function (req, res) {
-   res.sendFile(path.join(__dirname, './build', 'index.html'));
- });
-```
-
-Now requests to `/todos/42` will be handled correctly both in development and in production.
-
-### Building for Relative Paths
-
-By default, Create React App produces a build assuming your app is hosted at the server root.<br>
-To override this, specify the `homepage` in your `package.json`, for example:
-
-```js
-  "homepage": "http://mywebsite.com/relativepath",
-```
-
-This will let Create React App correctly infer the root path to use in the generated HTML file.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 
 
